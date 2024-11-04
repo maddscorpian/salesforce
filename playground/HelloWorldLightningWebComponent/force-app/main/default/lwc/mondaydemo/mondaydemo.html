@@ -1,0 +1,15 @@
+   <!-- partnerGreeting.html -->
+   <template>
+    <lightning-card title="Partner Greeting" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <lightning-input 
+                label="Enter Partner Name" 
+                value={partnerName} 
+                onchange={handleInputChange}>
+            </lightning-input>
+            
+            <!-- Container for the Lit component -->
+            <div class="lit-container" lwc:dom="manual"></div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Welcome Card" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <h1>Welcome, {partnerUserName}!</h1>
+            <lightning-input 
+                label="Partner User Name" 
+                value={partnerUserName} 
+                onchange={handleInputChange}>
+            </lightning-input>
+            <lightning-card title="Demo LWC with Lit Component">
+                <div lwc:dom="manual" class="lit-container"></div>
+            </lightning-card>
+        </div>
+    </lightning-card>
+</template>

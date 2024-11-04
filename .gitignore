@@ -1,0 +1,39 @@
+# Salesforce-specific files
+*.dup
+*.dup-meta.xml
+*.sfdx
+*.sfdx/tools
+**/orgs/
+**/local/
+
+# Configuration files
+config.json
+scratch-def.json
+
+# Local environment files
+node_modules/
+package-lock.json
+yarn.lock
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# VS Code specific
+.vscode/
+
+# Node.js
+node_modules/
+# IDEs
+.vscode/
+.idea/
+# OS files
+.DS_Store
+Thumbs.db
+
+**/webpack/output/
+
+**output.zip

@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Partner Greeting with Lit Component">
+        <div class="slds-m-around_medium">
+            <lightning-input
+                label="Enter Partner Name"
+                placeholder="Type a name"
+                value={partnerName}
+                onchange={handleInputChange}>
+            </lightning-input>
+        </div>
+        <div lwc:dom="manual" class="lit-container"></div>
+    </lightning-card>
+</template>
