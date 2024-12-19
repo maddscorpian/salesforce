@@ -1,4 +1,4 @@
-   // partnerGreeting.js
+// partnerGreeting.js
    import {LightningElement, track} from 'lwc';
    import { loadScript } from 'lightning/platformResourceLoader';
    import WELCOME_GREETING from '@salesforce/resourceUrl/mferesource'; // Ensure this matches your static resource name
