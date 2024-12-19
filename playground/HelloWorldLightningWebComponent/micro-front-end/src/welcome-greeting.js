@@ -6,6 +6,7 @@ class WelcomeGreeting extends LitElement {
         responseData: { type: String },
         imageUrl: { type: String },
         apiBaseUrl: { type: String },
+        postId: { type: String }, // New property for Post ID
     };
 
     constructor() {
@@ -13,7 +14,8 @@ class WelcomeGreeting extends LitElement {
         this.partnerName = '';
         this.responseData = '';
         this.imageUrl = '';
-        this.apiBaseUrl = 'https://jsonplaceholder.typicode.com';
+        this.apiBaseUrl = 'https://6aba-49-207-205-227.ngrok-free.app'; // Replace with your API base URL
+        this.postId = ''; // Initialize postId
     }
 
     static styles = css`
@@ -47,7 +49,8 @@ class WelcomeGreeting extends LitElement {
                 <h1>Welcome, ${this.partnerName}!</h1>
     
                 <!-- Input for POST -->
-                <input type="text" id="input-text" placeholder="Enter some text" />
+                <input type="text" id="input-value" placeholder="Enter value" />
+                <input type="text" id="input-id" placeholder="Enter ID" />
                 <button @click=${this.handlePostData}>Post Data</button>
     
                 <!-- Input for GET -->
@@ -64,50 +67,50 @@ class WelcomeGreeting extends LitElement {
             </div>
         `;
     }
-    
 
     handlePostData() {
-        const input = this.renderRoot.getElementById('input-text').value;
+        const inputValue = this.renderRoot.getElementById('input-value').value; // Get the input value
+        const inputId = this.renderRoot.getElementById('input-id').value; // Get the input ID
+        const jsonObject = {
+            id: inputId, // Use the input ID
+            value: inputValue // Use the input value
+        };
 
-        fetch(`${this.apiBaseUrl}/posts`, {
+        fetch(`${this.apiBaseUrl}/posts`, { // Replace with your API URL
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title: input }),
+            body: JSON.stringify(jsonObject),
         })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('POST Success:', data);
-                alert('Data Posted Successfully!');
-            })
-            .catch((error) => {
-                console.error('POST Error:', error);
-                alert('Failed to post data. Please try again.');
-            });
+        .then(response => response.json())
+        .then(data => {
+            console.log('POST Success:', data);
+            alert('Data Posted Successfully!');
+        })
+        .catch(error => {
+            console.error('POST Error:', error);
+            alert('Failed to post data. Please try again.');
+        });
     }
 
     handleGetData() {
-        // Get the Post ID from the input field
-        const postId = this.renderRoot.getElementById('get-post-id').value;
-    
-        // Validate Post ID
+        const postId = this.renderRoot.getElementById('get-post-id').value; // Get the Post ID from the input field
+
         if (!postId) {
             alert('Please enter a valid Post ID.');
             return;
         }
-    
-        // Fetch the post with the specified ID
-        fetch(`${this.apiBaseUrl}/posts/${postId}`)
-            .then((response) => response.json())
-            .then((data) => {
+
+        fetch(`${this.apiBaseUrl}/posts/${postId}`) // Replace with your API URL
+            .then(response => response.json())
+            .then(data => {
                 console.log('GET Success:', data);
                 this.responseData = JSON.stringify(data);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error('GET Error:', error);
                 alert('Failed to fetch data. Please try again.');
             });
     }
-    
 
     handleImageUpload(event) {
         const file = event.target.files[0];

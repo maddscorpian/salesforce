@@ -10,7 +10,7 @@ export default class PartnerHelloEmbed extends LightningElement {
 
     loadMicroFrontend() {
         const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/gh/maddscorpian/public-respurces@main/welcome-greeting.bundle.js'; // Replace with your CDN URL
+        script.src = 'https://cdn.jsdelivr.net/gh/maddscorpian/public-respurces@main/welcome-greeting-embed.bundle.js'; // Replace with your CDN URL
         script.onload = () => {
             this.renderLitComponent();
         };
