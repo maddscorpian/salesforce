@@ -24,7 +24,10 @@ https://cdn.jsdelivr.net/gh/maddscorpian/public-respurces@main/welcome-greeting.
 ## Backend application.
 Simple appliction to test get and post. 
 This is done using json-server. 
+https://www.npmjs.com/package/json-server
 The local service is exposed to internet via ngrok. 
+
+https://download.ngrok.com/mac-os
 
 
 
